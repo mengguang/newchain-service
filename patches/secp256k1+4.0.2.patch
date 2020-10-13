@@ -1,0 +1,24 @@
+diff --git a/node_modules/secp256k1/index.js b/node_modules/secp256k1/index.js
+index f801a76..3a8bfe3 100644
+--- a/node_modules/secp256k1/index.js
++++ b/node_modules/secp256k1/index.js
+@@ -1,5 +1,2 @@
+-try {
+-  module.exports = require('./bindings')
+-} catch (err) {
+-  module.exports = require('./elliptic')
+-}
++module.exports = require('./elliptic')
++
+diff --git a/node_modules/secp256k1/lib/elliptic.js b/node_modules/secp256k1/lib/elliptic.js
+index bd48ec1..90c7a23 100644
+--- a/node_modules/secp256k1/lib/elliptic.js
++++ b/node_modules/secp256k1/lib/elliptic.js
+@@ -1,6 +1,6 @@
+ const EC = require('elliptic').ec
+ 
+-const ec = new EC('secp256k1')
++const ec = new EC('p256')
+ const ecparams = ec.curve
+ 
+ // Hack, we can not use bn.js@5, while elliptic uses bn.js@4
